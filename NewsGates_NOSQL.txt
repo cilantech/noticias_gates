@@ -1,0 +1,27 @@
+NewsGates
+
+Entidades
+
+-Noticias
+
+-Autores
+
+Creaccion de colecciones
+
+db.createCollection("autores");
+
+db.createCollection("noticias");
+
+
+Carga de datos autores
+
+db.autores.insertOne({"nombre":"Herbin Hoyos", "correo": "periodistaH@gmail.com", "tipo": "columnista"});
+
+db.autores.insertOne({"nombre":"Gabriel García Márquez", "correo": "gabo@gmail.com", "tipo": "novelista"});
+
+db.autores.insertOne({"nombre":"Isabel Allende", "correo": "isabel@gmail.com", "tipo": "escritora"});
+
+db.autores.insertOne({"nombre":"Mario Vargas Llosa", "correo": "imario@gmail.com", "tipo": "ensayista"});
+
+db.autores.insertOne({"nombre":"Pablo Neruda", "correo": "pablo@gmail.com", "tipo": "poeta"});
+
