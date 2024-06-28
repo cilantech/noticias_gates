@@ -1,19 +1,19 @@
 NewsGates
 
-Entidades
+Entidades--------------------------------------------------------------------------------------------------------------------------------
 
 -Noticias
 
 -Autores
 
-Creaccion de colecciones
+Creaccion de colecciones-----------------------------------------------------------------------------------------------------------------
 
 db.createCollection("autores");
 
 db.createCollection("noticias");
 
 
-Carga de datos autores
+Carga de datos autores--------------------------------------------------------------------------------------------------------------------
 
 db.autores.insertOne({"nombre":"Herbin Hoyos", "correo": "periodistaH@gmail.com", "tipo": "columnista"});
 
@@ -24,4 +24,165 @@ db.autores.insertOne({"nombre":"Isabel Allende", "correo": "isabel@gmail.com", "
 db.autores.insertOne({"nombre":"Mario Vargas Llosa", "correo": "imario@gmail.com", "tipo": "ensayista"});
 
 db.autores.insertOne({"nombre":"Pablo Neruda", "correo": "pablo@gmail.com", "tipo": "poeta"});
+
+
+Carga de datos noticias y dentro de ellas autores enbebidos--------------------------------------------------------------------------------
+
+db.noticias.insertOne({
+  "titulo": "La IA obligándonos a redefinir la humanidad",
+  "cuerpo": "La Inteligencia Artificial (IA) se ha convertido en una de las tecnologías más importantes de la actualidad. Con el aumento del poder de procesamiento y la capacidad de almacenamiento de datos, la IA está transformando la forma en que vivimos, trabajamos y nos relacionamos con el mundo que nos rodea. Expertos debaten sobre si la IA llegará a dominar el mundo o si las máquinas podrían superar nuestra inteligencia. La posibilidad de que la IA alcance la singularidad, donde su perfección supere nuestra comprensión y control, plantea preguntas profundas sobre nuestra existencia. En este viaje evolutivo, la coexistencia entre humanos y máquinas se vuelve cada vez más relevante, y la IA sigue redefiniendo nuestra forma de vida. ¿Qué nos deparará el futuro?",
+  "categoria": "Tecnología",
+  "fecha": ISODate("2023-01-10"),
+  "autor": {
+    "nombre": "Pablo Neruda",
+    "correo": "pablo@gmail.com",
+    "tipo": "poeta"
+  }
+});
+
+
+db.noticias.insertOne({
+  "titulo": "Descubrimiento en Marte: Agua líquida encontrada bajo la superficie",
+  "cuerpo": "Los científicos de la NASA han anunciado un hallazgo sorprendente en Marte: agua líquida fluyendo bajo la superficie marciana. Este descubrimiento podría cambiar nuestra comprensión del planeta rojo y su potencial para albergar vida.",
+  "categoria": "Estelar",
+  "fecha": ISODate("2021-04-10"),
+  "autor": {
+    "nombre":"Herbin Hoyos", "correo": "periodistaH@gmail.com", "tipo": "columnista"  }
+});
+
+db.noticias.insertOne({
+  "titulo": "El misterio de las luces en el Triángulo de las Bermudas",
+  "cuerpo": "Los pilotos informan de extrañas luces en el cielo mientras vuelan sobre el Triángulo de las Bermudas. ¿Son fenómenos naturales o algo más siniestro? Los expertos debaten sobre las posibles explicaciones",
+  "categoria": "Misterio",
+  "fecha": ISODate("2024-01-11"),
+  "autor": {
+    "nombre":"Herbin Hoyos", "correo": "periodistaH@gmail.com", "tipo": "columnista"  }
+});
+
+db.noticias.insertOne({
+  "titulo": "Inteligencia Artificial crea obra maestra: ¿Es esta pintura mejor que las de Da Vinci?",
+  "cuerpo": "Un algoritmo de IA ha generado una pintura que ha dejado a los críticos perplejos. ¿Puede una máquina superar a los grandes maestros del arte? La controversia está servida.",
+  "categoria": "Opinion",
+  "fecha": ISODate("2023-12-11"),
+  "autor": {
+"nombre":"Gabriel García Márquez", "correo": "gabo@gmail.com", "tipo": "novelista"
+      }
+});
+
+db.noticias.insertOne({
+  "titulo": "El bosón de Higgs: ¿La clave para entender el universo?",
+  "cuerpo": "Los científicos del CERN han confirmado la existencia del bosón de Higgs, también conocido como la “partícula de Dios”. ¿Qué implicaciones tiene este descubrimiento para nuestra comprensión fundamental del cosmos?",
+  "categoria": "Estelar",
+  "fecha": ISODate("2023-10-10"),
+  "autor": {
+"nombre":"Isabel Allende", "correo": "isabel@gmail.com", "tipo": "escritora"
+      }
+});
+
+db.noticias.insertOne({
+  "titulo": "Criptomonedas en auge: ¿El fin del dinero tradicional?",
+  "cuerpo": "Bitcoin, Ethereum y otras criptomonedas están ganando terreno como alternativas al dinero fiduciario. ¿Estamos presenciando una revolución financiera o una burbuja especulativa?",
+  "categoria": "Estelar",
+  "fecha": ISODate("2024-01-12"),
+  "autor": {
+"nombre":"Mario Vargas Llosa", "correo": "imario@gmail.com", "tipo": "ensayista"
+      }
+});
+
+
+db.noticias.insertOne({
+  "titulo": "Desaparición de la gravedad: ¿Qué pasaría si dejáramos de estar pegados al suelo?",
+  "cuerpo": "Un experimento hipotético sugiere que si la gravedad desapareciera repentinamente, todo se elevaría hacia el espacio. ¿Cómo afectaría esto a la vida en la Tierra?",
+  "categoria": "Fisica",
+  "fecha": ISODate("2023-05-15"),
+  "autor": {
+"nombre":"Pablo Neruda", "correo": "pablo@gmail.com", "tipo": "poeta"
+      }
+});
+
+db.noticias.insertOne({
+  "titulo": "El renacimiento de los dinosaurios: ¿Podríamos clonarlos?",
+  "cuerpo": " Los avances en biotecnología plantean la posibilidad de revivir a los dinosaurios a partir de su ADN fosilizado. ¿Estamos al borde de ver a un Tiranosaurio rex deambulando por el siglo XXI?",
+  "categoria": "Opinion",
+  "fecha": ISODate("2023-06-18"),
+  "autor": {
+"nombre":"Herbin Hoyos", "correo": "periodistaH@gmail.com", "tipo": "columnista"
+      }
+});
+
+db.noticias.insertOne({
+  "titulo": "Colonización de Marte: Primeros habitantes a punto de partir",
+  "cuerpo": "La empresa espacial SpaceX anuncia que los primeros colonos humanos viajarán a Marte en una misión histórica. ¿Cómo será la vida en el planeta rojo?",
+  "categoria": "Estelar",
+  "fecha": ISODate("2024-03-11"),
+  "autor": {
+"nombre":"Pablo Neruda", "correo": "pablo@gmail.com", "tipo": "poeta"
+      }
+});
+
+
+db.noticias.insertOne({
+  "titulo": "Inteligencia extraterrestre: Señales misteriosas desde el espacio profundo",
+  "cuerpo": " Los astrónomos captan señales de radio inexplicables provenientes de una estrella distante. ¿Estamos ante una comunicación alienígena o simplemente interferencias cósmicas?",
+  "categoria": "Conspiraciones",
+  "fecha": ISODate("2022-02-12"),
+  "autor": {
+"nombre":"Mario Vargas Llosa", "correo": "imario@gmail.com", "tipo": "ensayista"
+      }
+});
+
+
+db.noticias.insertOne({
+  "titulo": "El enigma de los agujeros negros: ¿Portales a otras dimensiones",
+  "cuerpo": "Los agujeros negros, esos devoradores cósmicos, siguen siendo un misterio. Algunos científicos sugieren que podrían ser portales a universos paralelos. ¿Qué secretos ocultan estas singularidades gravitacionales?",
+  "categoria": "Conspiraciones",
+  "fecha": ISODate("2023-04-10"),
+  "autor": {
+"nombre":"Isabel Allende", "correo": "isabel@gmail.com", "tipo": "escritora"
+      }
+});
+
+
+db.noticias.insertOne({
+  "titulo": "La revolución de las impresoras 4D: Objetos que se ensamblan solos",
+  "cuerpo": " Las impresoras 4D no solo imprimen objetos en 3D, sino que también les dan la capacidad de transformarse con el tiempo. Desde materiales autorreparables hasta estructuras que se adaptan al entorno, la era de la fabricación inteligente está aquí.",
+  "categoria": "Tecnologia",
+  "fecha": ISODate("2023-06-16"),
+  "autor": {
+"nombre":"Pablo Neruda", "correo": "pablo@gmail.com", "tipo": "poeta"
+      }
+});
+
+db.noticias.insertOne({
+  "titulo": "El último mensaje de la sonda Voyager: ¿Saludos a los extraterrestres?",
+  "cuerpo": "La sonda espacial Voyager 1, que viaja más allá de nuestro sistema solar, ha enviado un último mensaje antes de perderse en el espacio interestelar. ¿Estamos enviando saludos a posibles civilizaciones alienígenas?",
+  "categoria": "Investigativo",
+  "fecha": ISODate("2022-04-10"),
+  "autor": {
+"nombre":"Mario Vargas Llosa", "correo": "imario@gmail.com", "tipo": "ensayista"
+      }
+});
+
+db.noticias.insertOne({
+  "titulo": "El renacimiento de los mamuts: ¿Podríamos verlos caminar de nuevo",
+  "cuerpo": " Los científicos están cerca de clonar a los extintos mamuts lanudos utilizando ADN antiguo y técnicas de edición genética. ¿Será posible ver a estas gigantes criaturas pastando en las estepas siberianas nuevamente?",
+  "categoria": "Opinion",
+  "fecha": ISODate("2024-06-12"),
+  "autor": {
+"nombre":"Isabel Allende", "correo": "isabel@gmail.com", "tipo": "escritora"
+      }
+});
+
+db.noticias.insertOne({
+  "titulo": "Se descubre virus zombi en Cocorna",
+  "cuerpo": "Increible pero cierto 5 agricultores se canibalizaron luego de ser mordidos por gurre geneticamente modificado la OMS ya hace presencia en el sitio para verificar y catalogar el patogeno que salto por primera vez de especie y parace retar el sistema inmune humano",
+  "categoria": "Salud",
+  "fecha": ISODate("2024-06-16"),
+  "autor": {
+"nombre":"Mario Vargas Llosa", "correo": "imario@gmail.com", "tipo": "ensayista"
+      }
+});
+
+Consultas----------------------------------------------------------------------------------------------------------------------------------
+
 
