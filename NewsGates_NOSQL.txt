@@ -40,7 +40,6 @@ db.noticias.insertOne({
   }
 });
 
-
 db.noticias.insertOne({
   "titulo": "Descubrimiento en Marte: Agua líquida encontrada bajo la superficie",
   "cuerpo": "Los científicos de la NASA han anunciado un hallazgo sorprendente en Marte: agua líquida fluyendo bajo la superficie marciana. Este descubrimiento podría cambiar nuestra comprensión del planeta rojo y su potencial para albergar vida.",
@@ -183,6 +182,81 @@ db.noticias.insertOne({
       }
 });
 
+db.noticias.insertOne({
+  "titulo": "El árbol que camina",
+  "cuerpo": "Descubren una especie de árbol capaz de mover sus raíces para buscar la luz solar. Los científicos lo llaman el “Ent arbóreo” en honor a los árboles de Tolkien.",
+  "categoria": "Botanica",
+  "fecha": ISODate("2023-04-15"),
+  "autor": {
+"nombre":"Pablo Neruda", "correo": "pablo@gmail.com", "tipo": "poeta"
+      }
+});
+
+db.noticias.insertOne({
+  "titulo": "El lenguaje secreto de los pulpos",
+  "cuerpo": "Investigadores descubren que los pulpos pueden comunicarse mediante cambios de color y patrones en su piel. ¿Están tramando una revolución submarina?",
+  "categoria": "Biologia",
+  "fecha": ISODate("2023-06-16"),
+  "autor": {
+"nombre":"Herbin Hoyos", "correo": "periodistaH@gmail.com", "tipo": "columnista"
+      }
+});
+
+db.noticias.insertOne({
+  "titulo": "La isla de los gatos",
+  "cuerpo": " En Japón, existe una isla habitada principalmente por gatos. Los felinos superan en número a los humanos, y los turistas acuden para disfrutar de su compañía.",
+  "categoria": "Curiosidades",
+  "fecha": ISODate("2024-01-11"),
+  "autor": {
+"nombre":"Pablo Neruda", "correo": "pablo@gmail.com", "tipo": "poeta"
+      }
+});
+
+
+db.noticias.insertOne({
+  "titulo": "El efecto Mozart en las plantas",
+  "cuerpo": "Un estudio revela que las plantas crecen más rápido cuando se les expone a música clásica, especialmente las composiciones de Mozart. ¿Tal vez deberíamos ponerle audífonos a nuestros jardines?",
+  "categoria": "Conspiraciones",
+  "fecha": ISODate("2023-02-12"),
+  "autor": {
+"nombre":"Mario Vargas Llosa", "correo": "imario@gmail.com", "tipo": "ensayista"
+      }
+});
+
+
+db.noticias.insertOne({
+  "titulo": "El misterio de las piedras saltarinas",
+  "cuerpo": "En el Valle de la Muerte (EE. UU.), hay piedras que se desplazan solas por el desierto, dejando rastros en la arena. ¿Cómo es posible? Los científicos finalmente encuentran la respuesta.",
+  "fecha": ISODate("2023-01-10"),
+  "autor": {
+"nombre":"Isabel Allende", "correo": "isabel@gmail.com", "tipo": "escritora"
+      }
+});
+
+
 Consultas----------------------------------------------------------------------------------------------------------------------------------
 
+1-Obtener el listado de noticias de un autor, en donde el campo de
+búsqueda o filtro del autor es su email.
 
+db.noticias.find({ "autor.correo": "x" });
+
+db.noticias.find({ "autor.correo": "periodistaH@gmail.com" });
+
+
+2-Obtener el listado de noticias de un autor, en donde el campo de
+búsqueda o filtro del autor es su nombre, los resultados deben salir
+de forma ordenada por el campo fecha de publicación de form
+descendente, es decir primero se ven las más recientes.
+
+db.noticias.find({ "autor.nombre": "x" }).sort({ "fecha": -1 });
+
+db.noticias.find({ "autor.nombre": "Pablo Neruda" }).sort({ "fecha": -1 });
+
+
+3-Obtener un listado de noticias filtrado por un rango de fechas, por
+ejemplo todas las noticias entre el 10-01-2024 y el 30-01-2024
+
+db.noticias.find({"fecha": {$gte: ISODate("x"),$lte: ISODate("x")}}).sort({ "fecha": 1 });
+
+db.noticias.find({"fecha": {$gte: ISODate("2024-01-10"),$lte: ISODate("2024-01-30")}}).sort({ "fecha": 1 });
